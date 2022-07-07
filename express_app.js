@@ -13,3 +13,16 @@ app.get('/', (req, res) => {
     //content type and response status code
     // which means you are not obligated to write status code and content-type 
 });
+app.get('/index', (req, res) => {
+    res.sendFile('./employe_MS/index.html', { root: __dirname });
+});
+app.get('/about', (req, res) => {
+    res.sendFile('./employe_MS/about.html', { root: __dirname });
+});
+app.get('/about-me', (req, res) => {
+    res.redirect('/about')
+});
+app.use((req, res) => {
+    res.sendFile('./employe_MS/error.html', { root: __dirname })
+        //we have use use() method always at the end
+})
