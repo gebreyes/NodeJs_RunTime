@@ -16,12 +16,20 @@ const run = http.createServer((request, response) => {
         // now define the cases
         case '/': // root one if you simply type localhost:500
             path += 'index.html'
+            response.statusCode = 200 //setting statuscode to ok/success
             break;
         case '/about':
             path += 'about.html'
+            response.statusCode = 200
+            break;
+        case '/about-me': //this case deal with redirecting to other page
+            //using setHeader(Location, 'page')
+            response.setHeader('Location', '/about')
+            response.statusCode = 301
             break;
         default:
             path += 'error.html'
+            response.statusCode = 404
             break;
     }
     // Now the below lines of code deals with sending response to the user/client
@@ -38,3 +46,13 @@ const run = http.createServer((request, response) => {
 run.listen(port, host, () => {
     console.log(`server is ruuning on ${port} : ${host}`);
 });
+// status code describes about the type of response sent to the browser
+
+/*
+Status code          there meaning
+100 range..................informational response
+200 range------------------success code
+300 range------------------redirect code
+400 range------------------client sied error
+500 range------------------server side error
+*/
