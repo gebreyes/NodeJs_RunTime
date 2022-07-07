@@ -1,0 +1,22 @@
+For an agent in the environment, the main challenge is its initial ignorance of the conﬁguration
+of the environment; overcoming this ignorance seems to require logical reasoning.
+In most instances of the wumpus world, it is possible for the agent to retrieve the gold safely.
+Occasionally, the agent must choose between going home empty-handed and risking death to
+ﬁnd the gold. About 21% of the environments are utterly unfair, because the gold is in a pit
+or surrounded by pits.
+Let us watch a knowledge-based wumpus agent exploring the environment shown in
+Figure 7.2. We use an informal knowledge representation language consisting of writing
+down symbols in a grid (as in Figures 7.3 and 7.4).
+The agent’s initial knowledge base contains the rules of the environment, as described
+previously; in particular, it knows that it is in [1,1] and that [1,1] is a safe square; we denote
+that with an “A” and “OK,” respectively, in square [1,1].
+The ﬁrst percept is from which the agent can conclude
+that its neighboring squares, [1,2] and [2,1], are free of dangers—they are OK. Figure
+7.3(a) shows the agent’s state of knowledge at this point.
+A cautious agent will move only into a square that it knows to be OK. Let us suppose
+the agent decides to move forward to [2,1]. The agent perceives a breeze (denoted by “B”) in
+[2,1], so there must be a pit in a neighboring square. The pit cannot be in [1,1], by the rules of
+the game, so there must be a pit in [2,2] or [3,1] or both. The notation “P?” in Figure 7.3(b)
+indicates a possible pit in those squares. At this point, there is only one known square that is
+OK and that has not yet been visited. So the prudent agent will turn around, go back to [1,1],
+and then proceed to [1,2].
