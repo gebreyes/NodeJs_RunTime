@@ -19,7 +19,7 @@ app.get('/index', (req, res) => {
 app.get('/about', (req, res) => {
     res.sendFile('./employe_MS/about.html', { root: __dirname });
     // when we use sendFile method it always take absolute path of the computer 
-    //not the current directory so it is very important to use {root:__dirname}
+    //not the current directory or relative path so it is very important to use {root:__dirname}
 });
 app.get('/about-me', (req, res) => {
     res.redirect('/about')
